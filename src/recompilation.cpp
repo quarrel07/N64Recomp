@@ -414,6 +414,10 @@ bool process_instruction(GeneratorType& generator, const N64Recomp::Context& con
     case InstrId::cpu_nop:
         fmt::print(output_file, "\n");
         break;
+    case InstrId::cpu_teq:
+        // MIPS trap-if-equal: no-op in recompiled context
+        fmt::print(output_file, "\n");
+        break;
     // Cop0 (Limited functionality)
     case InstrId::cpu_mfc0:
         {
